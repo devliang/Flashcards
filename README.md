@@ -5,7 +5,8 @@
 
 ### App Walk-though
 
-<img src="http://recordit.co/wJmN3eBCMs" width=200><br>
+<img src="http://g.recordit.co/wJmN3eBCMs.gif" width=200><br>
+
 
 ## Required
 - [x] Create New Project in Xcode
