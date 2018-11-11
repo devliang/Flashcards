@@ -8,7 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol EditDelegate: class {
+    func onEditFinished(label1: String, label2: String, btn1: String, btn2: String, btn3: String)
+}
+
+
+class ViewController: UIViewController, EditDelegate {
+    func onEditFinished(label1: String, label2: String, btn1: String, btn2: String, btn3: String) {
+        frontLabel.text = label1
+        backLabel.text = label2
+        btnOptionOne.setTitle(btn1, for: .normal)
+        btnOptionTwo.setTitle(btn2, for: .normal)
+        btnOptionThree.setTitle(btn3, for: .normal)
+    }
 
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
@@ -21,7 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("didload")
         // Give it rounded corner
         card.layer.shadowRadius = 15.0;
         card.layer.shadowOpacity = 0.2;
@@ -53,32 +65,74 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        if(!frontLabel.isHidden){  //current is front
-            frontLabel.isHidden = true;
-//            backLabel.isHidden = false;
-        }
-        else{ // current is back
-            frontLabel.isHidden = false;
-//            backLabel.isHidden = true;
-        }
+        frontLabel.isHidden = !frontLabel.isHidden
+//        if(!frontLabel.isHidden){  //current is front
+//            frontLabel.isHidden = true;
+//        }
+//        else{ // current is back
+//            frontLabel.isHidden = false;
+//        }
         
     }
 
+    func updateFlashcard(question: String, answer: String) {
+        dismiss(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        //We know the destination of the segue is the navagation controller
+        let navigationController = segue.destination as! UINavigationController
+        
+        //We know the navigation controller only contains a Creation View Controller
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        //We set the flashcardsController property to self
+        creationController.flashcardsController = self
+        creationController.delegate = self
+        
+        creationController.initialQuestion = frontLabel.text
+        creationController.initialAnswer = backLabel.text
+        
+        if segue.identifier == "EditSegue"{
+            creationController.initialQuestion = frontLabel.text
+            creationController.initialAnswer = backLabel.text
+        }
+    }
+    
     @IBAction func didTapOptionOne(_ sender: Any) {
-        btnOptionOne.isHidden = true;
-        
+        if let text = btnOptionOne.titleLabel!.text {
+            if(text == backLabel.text!){
+                frontLabel.isHidden = true;
+                btnOptionTwo.isHidden = true;
+                btnOptionThree.isHidden = true;
+            }
+        }
     }
-
+    
     @IBAction func didTapOptionTwo(_ sender: Any) {
-        frontLabel.isHidden = true;
-        btnOptionOne.isHidden = true;
-        btnOptionThree.isHidden = true;
+        if let text = btnOptionTwo.titleLabel!.text {
+            if(text == backLabel.text!){
+                frontLabel.isHidden = true;
+                btnOptionOne.isHidden = true;
+                btnOptionThree.isHidden = true;
+            }
+        }
     }
 
     @IBAction func didTapOptionThree(_ sender: Any) {
-        btnOptionThree.isHidden = true;
+        if let text = btnOptionThree.titleLabel!.text {
+            if(text == backLabel.text!){
+                frontLabel.isHidden = true;
+                btnOptionOne.isHidden = true;
+                btnOptionTwo.isHidden = true;
+            }
+        }
     }
+    
+    
+    
 }
 

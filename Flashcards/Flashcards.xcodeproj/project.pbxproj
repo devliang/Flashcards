@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC4EA7EF2193E35400472ECF /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA7EE2193E35400472ECF /* CreationViewController.swift */; };
 		ECB9E1532172B3C70080D2EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9E1522172B3C70080D2EF /* AppDelegate.swift */; };
 		ECB9E1552172B3C70080D2EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9E1542172B3C70080D2EF /* ViewController.swift */; };
 		ECB9E1582172B3C70080D2EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB9E1562172B3C70080D2EF /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC4EA7EE2193E35400472ECF /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreationViewController.swift; path = ../CreationViewController.swift; sourceTree = "<group>"; };
 		ECB9E14F2172B3C70080D2EF /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB9E1522172B3C70080D2EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB9E1542172B3C70080D2EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				ECB9E1522172B3C70080D2EF /* AppDelegate.swift */,
 				ECB9E1542172B3C70080D2EF /* ViewController.swift */,
 				ECB9E1562172B3C70080D2EF /* Main.storyboard */,
+				EC4EA7EE2193E35400472ECF /* CreationViewController.swift */,
 				ECB9E1592172B3C70080D2EF /* Assets.xcassets */,
 				ECB9E15B2172B3C70080D2EF /* LaunchScreen.storyboard */,
 				ECB9E15E2172B3C70080D2EF /* Info.plist */,
@@ -138,6 +141,7 @@
 			files = (
 				ECB9E1552172B3C70080D2EF /* ViewController.swift in Sources */,
 				ECB9E1532172B3C70080D2EF /* AppDelegate.swift in Sources */,
+				EC4EA7EF2193E35400472ECF /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
